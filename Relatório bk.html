@@ -1,0 +1,336 @@
+<div id="MyWidget_${instanceId}" class="super-widget wcm-widget-class fluig-style-guide" data-params="MyWidget.instance()">
+    <link href="css/Relatório.css" rel="stylesheet">
+    <link href="css/houver.css" rel="stylesheet">
+    <script type="text/javascript" src="/fluighub/assets/js/fluighub.js"></script>
+    <script type="text/javascript" src="/webdesk/vcXMLRPC.js"></script>
+
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+        <a class="nav-link nav-close active" data-toggle="tab" href="#relatorio_particiapnte_nav">Relatório de Participantes</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link nav-close" data-toggle="tab" href="#relatorio_comercial_nav">Relatório de cadastro Comercial</a>
+        </li>
+    </ul>
+
+    <div class="tab-content">
+
+        <!-- Relatório de Participantes -->
+        <div id="cadastro_cliente_nav" class="container tab-pane active" aria-selected="true">
+
+            <div class="row filtro-medcin">
+            
+                <br>
+
+                <!-- 1º Input -->
+                <div class="form-group col-md-12">
+                    <label>Nome</label>
+                    <input type="text" id="filter_nome" name="filter_nome" class="form-control" placeholder="Nome..." value=""> 
+                </div>
+
+                <div class="clearfix"></div>
+
+                <!-- 1/2º Input -->
+                <div class="form-group col-md-2">
+                    <label>Idade de:</label>
+                    <input type="text" id="filter_idade_de" name="filter_idade_de" class="form-control" placeholder="De..." value="">
+                </div>
+
+                <!-- 2/2º Input -->
+                <div class="form-group col-md-2">
+                    <label>Até:</label>
+                    <input type="text" id="filter_idade_ate" name="filter_idade_ate" class="form-control" placeholder="Até..." value="">
+                </div>
+
+                 <!--3º Input -->
+                 <div class="form-group col-md-3">
+                    <label>Sexo</label>
+                    <select id="filter_sexo" name="filter_sexo" class="form-control">
+                        <option value="">Sexo...</option>
+                        <option value="F">Feminino</option>
+                        <option value="M">Masculino</option>
+                    </select>
+                </div>
+
+                <div class="clearfix"></div>
+                <hr style="color: white;">
+                <br>
+
+                 <!--7º Input -->
+                 <div class="form-group col-md-3">
+                    <label>Sensibilidade da Pele</label>
+                    <select id="filter_sensibilidade" name="filter_sensibilidade" class="form-control">
+                        <option value="">Selecione...</option>
+                        <option value="Pele Sensível">Pele Sensível</option>
+                        <option value="Pele normal">Pele normal</option>
+                    </select>
+                </div>
+
+                <!--8º Input -->
+                <div class="form-group col-md-3">
+                    <label>Fototipo</label>
+                    <select id="filter_fototipo" name="filter_fototipo" class="form-control">
+                        <option value="">Selecione...</option>
+                        <option value="Fototipo I ou II">Fototipo I ou II</option>
+                        <option value="Fototipo III ou IV">Fototipo III ou IV</option>
+                        <option value="Fototipo acima de IV">Fototipo acima de IV</option>
+                    </select>
+                </div>
+
+                <!--9º Input -->
+                <div class="form-group col-md-2">
+                    <label>Espinhas</label>
+                    <select id="filter_espinhas" name="filter_espinhas" class="form-control">
+                        <option value="">Selecione...</option>
+                        <option value="1">Sempre tenho espinha no rosto</option>
+                        <option value="2">As vezes, sem motivo aparente</option>
+                        <option value="3">Somente próximo ao ciclo menstrual</option>
+                        <option value="4">Não tenho espinhas</option>
+                    </select>
+                </div>
+
+                <!--10º Input -->
+                <div class="form-group col-md-2">
+                    <label>Pele do Rosto</label>
+                    <select id="filter_rosto" name="filter_rosto" class="form-control">
+                        <option value="">Selecione...</option>
+                        <option value="1">Hidratada</option>
+                        <option value="2">Ressecada</option>
+                        <option value="3">Mista, oleosidade somente na testa nariz e queixo</option>
+                        <option value="4">Oleosa</option>
+                        <option value="5">Normal</option>
+                    </select>
+                </div>
+
+                <!--11º Input -->
+                <div class="form-group col-md-2">
+                    <label>Tipo de Cabelo</label>
+                    <select id="filter_cabelo" name="filter_cabelo" class="form-control">
+                        <option value="">Selecione...</option>
+                        <option value="1">Liso</option>
+                        <option value="2">Ondulado</option>
+                        <option value="3">Enrolado</option>
+                        <option value="4">Crespo</option>
+                    </select>
+                </div>
+
+                <!--12º Input -->
+                <div class="form-group col-md-2">
+                    <label>Caspas</label>
+                    <select id="filter_caspas" name="filter_caspas" class="form-control">
+                        <option value="">Selecione...</option>
+                        <option value="1">Tenho muitas caspas</option>
+                        <option value="2">Tenho quantidade normal de caspas</option>
+                        <option value="3">Não tenho caspas</option>
+                    </select>
+                </div>
+
+                <!--13º Input -->
+                <div class="form-group col-md-2">
+                    <label>Pele do Corpo</label>
+                    <select id="filter_corpo" name="filter_corpo" class="form-control">
+                        <option value="">Selecione...</option>
+                        <option value="1">Hidratada</option>
+                        <option value="2">Ressecada</option>
+                        <option value="3">Normal</option>
+                    </select>
+                </div>
+
+                <!--14º Input -->
+                <div class="form-group col-md-2">
+                    <label>Transpiração</label>
+                    <select id="filter_transpiracao" name="filter_transpiracao" class="form-control">
+                        <option value="">Selecione...</option>
+                        <option value="1">Excessiva, suo muito</option>
+                        <option value="2">Normal</option>
+                        <option value="3">Não suo, dificilmente transpiro</option>
+                    </select>
+                </div>
+
+                <!--15º Input -->
+                <div class="form-group col-md-2">
+                    <label>Histórico Alergico</label>
+                    <select id="filter_alergia" name="filter_alergia" class="form-control">
+                        <option value="">Selecione...</option>
+                        <option value="1">Sim, com frequência</option>
+                        <option value="2">Às vezes</option>
+                        <option value="3">Não</option>
+                    </select>
+                </div>
+
+                <!--16º Input -->
+                <div class="form-group col-md-2">
+                    <label>Disponibilidade</label>
+                    <select id="filter_disponibilidade" name="filter_disponibilidade" class="form-control">
+                        <option value="">Selecione...</option>
+                        <option value="1">Entre 1 e 2 horas no máximo</option>
+                        <option value="2">Até 4 horas</option>
+                        <option value="3">Até 6 horas</option>
+                        <option value="4">Mais de 6 horas</option>
+                    </select>
+                </div>
+
+                <!--17º Input -->
+                <div class="form-group col-md-2">
+                    <label>Fumante</label>
+                    <select id="filter_fumante" name="filter_fumante" class="form-control">
+                        <option value="">Selecione...</option>
+                        <option value="S">Sim</option>
+                        <option value="N">Não</option>
+                    </select>
+                </div>
+            
+                <div class="clearfix"></div>
+
+                <div class="form-group col-md-8"></div>
+                <div class="form-group col-md-1">
+                    <button id="filtrar" class="btn btn-success button-filter" onclick="filtrar();"><i class="fluigicon fluigicon-filter icon-xs" style="color: white;"></i> Filtrar</button>
+                </div>
+
+                <div class="form-group col-md-1">
+                    <button id="filtrar" class="btn btn-danger" onclick="filter_clear()"> Limpar</button>
+                </div>
+
+                <div class="form-group col-md-1">
+                    <button id="filtrar" class="btn btn-info" onclick="filter_all();"> Pesquisar tudo</button>
+                </div>
+                
+            </div>
+            
+                      
+            <div class="clearfix"></div>
+            <br>
+            <button id="print" class="btn btn-info" onclick="printAvd()">Imprimir Relatório</button>
+            <button id="ex_xls" class="btn btn-success" onclick="ExportToExcel()">Exportar em (.xls)</button>
+            <div class="clearfix"></div>
+            <br>
+            <br>
+
+            <div id="relatorio_a4" class="relatorio-div">
+                <img src="https://github.com/Emanuel-developer992/imagens/blob/main/Medcin/header-participantes.png?raw=true" style="width: 1080px;">
+                
+                <div class="cleafix"></div>
+                <br>
+                <br>                         
+
+                <div id="scroll" class="tb_scroll">
+                    <div id="div_tb" class="table-responsive" style="width: 1080px;">
+                        <table tablename="tb_relatorio" id="tb_relatorio" noaddbutton="true" nodeletebutton="true" class="table table-hover">
+                            <thead>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <!--
+            -->
+
+            <div class="clearfix"></div>
+            <br>
+            <br>
+
+            <div id="painelControl">
+                <!--Linha 1-->
+                <div style="width: 1080px;">
+                        
+                    <div class="hoverzoom col-md-4" style="display: inline;">
+                        <img src="https://github.com/Emanuel-developer992/imagens/blob/main/Medcin/responsavel-select4.png?raw=true" style="width: 313px; height: 273px;" onclick="filter_responsavel()">
+                    </div>
+                
+                    <div class="hoverzoom col-md-4" style="display: inline;">
+                        <img src="https://github.com/Emanuel-developer992/imagens/blob/main/Medcin/cadastro-select2.png?raw=true" style="width: 313px; height: 273px;" onclick="filter_cadastro()">
+                    </div>
+                
+                    <div class="hoverzoom col-md-4" style="display: inline;">
+                        <img src="https://github.com/Emanuel-developer992/imagens/blob/main/Medcin/localidade-select4.png?raw=true" style="width: 313px; height: 273px;" onclick="filter_localidade()">
+                    </div>
+
+                </div>
+                
+                <br>
+                <br>
+
+                <!--Linha 2-->
+                <div style="width: 1080px;">
+                    
+                    <div class="hoverzoom col-md-4" style="display: inline; padding-top: 10px;">
+                        <img src="https://github.com/Emanuel-developer992/imagens/blob/main/Medcin/rede-social-select.png?raw=true" style="width: 313px; height: 273px;" onclick="filter_social()">
+                    </div>
+                
+                    <div class="hoverzoom col-md-4" style="display: inline; padding-top: 10px;">
+                        <img src="https://github.com/Emanuel-developer992/imagens/blob/main/Medcin/fototipo-select.png?raw=true" style="width: 313px; height: 273px;" onclick="filter_fototipo()">
+                    </div>
+                
+                    <div class="hoverzoom col-md-4" style="display: inline; padding-top: 10px;">
+                        <img src="https://github.com/Emanuel-developer992/imagens/blob/main/Medcin/sensibilidade-select.png?raw=true" style="width: 313px; height: 273px;" onclick="filter_sensibilidade()">
+                    </div>
+
+                </div>
+                
+                <br>
+                <br>
+
+                <!--Linha 3-->
+                <div style="width: 1080px;">
+                    
+                    <div class="hoverzoom col-md-4" style="display: inline; padding-top: 10px;">
+                        <img src="https://github.com/Emanuel-developer992/imagens/blob/main/Medcin/perfilrosto-select4.png?raw=true" style="width: 313px; height: 273px;" onclick="filter_rosto()">
+                    </div>
+                
+                    <div class="hoverzoom col-md-4" style="display: inline; padding-top: 10px;">
+                        <img src="https://github.com/Emanuel-developer992/imagens/blob/main/Medcin/perfilcabelo-select4.png?raw=true" style="width: 313px; height: 273px;" onclick="filter_cabelo()">
+                    </div>
+                
+                    <div class="hoverzoom col-md-4" style="display: inline; padding-top: 10px;">
+                        <img src="https://github.com/Emanuel-developer992/imagens/blob/main/Medcin/corporal-select.png?raw=true" style="width: 313px; height: 273px;" onclick="filter_corpo()">
+                    </div>
+
+                </div>
+                
+                <br>
+                <br>
+
+                <!--Linha 4-->
+                <div style="width: 1080px;">
+                    
+                    <div class="hoverzoom col-md-4" style="display: inline; padding-top: 10px;">
+                        <img src="https://github.com/Emanuel-developer992/imagens/blob/main/Medcin/saude-select.png?raw=true" style="width: 313px; height: 273px;" onclick="filter_saude()">
+                    </div>
+
+                </div>
+            </div>
+          
+            <div class="clearfix"></div>
+            <br>
+            <br> 
+
+            <!--
+            -->
+
+        </div>
+
+        <!-- Relatório de cadastro Comercial -->
+        <div id="analise_critica_nav" class="container tab-pane fade" aria-selected="false">
+
+            
+        </div>
+
+    </div>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script src="jquery.btechco.excelexport.js"></script>
+    <script src="jquery.base64.js"></script>
+    <script type="text/javascript">
+        function ExportToExcel(mytblId){
+               var htmltable= document.getElementById('tb_relatorio');
+               var html = htmltable.outerHTML;
+               window.open('data:application/vnd.ms-excel,' + encodeURIComponent(html));
+            }
+        </script>
+</div>
